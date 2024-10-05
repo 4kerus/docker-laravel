@@ -1,11 +1,8 @@
-INSTALL:
-	docker compose build
-	docker compose run composer create-project laravel/laravel .
-	docker compose up nginx -d
-	docker compose run artisan migrate
-
 BUILD:
 	docker compose build
+
+INSTALL:
+	docker compose run composer create-project laravel/laravel .
 
 START:
 	docker compose up nginx -d
@@ -14,4 +11,4 @@ STOP:
 	docker compose down -v --remove-orphans
 
 MIGRATE:
-	docker compose run artisan migrate
+	docker compose run artisan migrate:refresh
